@@ -20,14 +20,12 @@ const wardrobe = {
   pantalones: [
     { id: "levis-crema",        nombre: "Levi's crema",        categoria: "pantalones", imagen: "images/pantalones/levis-crema.png" },
     { id: "levis-verde",        nombre: "Levi's verde",        categoria: "pantalones", imagen: "images/pantalones/levis-verde.png" },
-    { id: "levis-camel",        nombre: "Levi's camel",        categoria: "pantalones", imagen: "images/pantalones/levis-camel.png" },
     { id: "vaquero",            nombre: "Vaquero",             categoria: "pantalones", imagen: "images/pantalones/vaquero.png" },
     { id: "vaquero-gris",       nombre: "Vaquero gris",        categoria: "pantalones", imagen: "images/pantalones/vaquero-gris.png" },
     { id: "vaquero-camel",      nombre: "Vaquero camel",       categoria: "pantalones", imagen: "images/pantalones/vaquero-camel.png" },
     { id: "vaquero-granate",    nombre: "Vaquero granate",     categoria: "pantalones", imagen: "images/pantalones/vaquero-granate.png" },
     { id: "traje-marron-liso",  nombre: "Traje marrón liso",   categoria: "pantalones", imagen: "images/pantalones/traje-marron-liso.png" },
     { id: "azul",               nombre: "Azul",                categoria: "pantalones", imagen: "images/pantalones/azul.png" },
-    { id: "azul-oscuro",        nombre: "Azul oscuro",         categoria: "pantalones", imagen: "images/pantalones/azul-oscuro.png" },
     { id: "rayas-marron",       nombre: "Rayas marrón",        categoria: "pantalones", imagen: "images/pantalones/rayas-marron.png" },
     { id: "rayas-gris",         nombre: "Rayas gris",          categoria: "pantalones", imagen: "images/pantalones/rayas-gris.png" }
   ],
