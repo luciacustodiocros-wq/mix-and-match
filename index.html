@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Armario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="cabecera__interior">
+    <h1 class="cabecera__titulo">Mi armario</h1>
+    <p class="cabecera__subtitulo">Mix &amp; match</p>
+  </div>
+</header>
+
+<nav class="nav" id="nav-principal">
+  <button class="nav__item is-activo" data-vista="armario">
+    <span class="nav__icono">👗</span><span>Armario</span>
+  </button>
+  <button class="nav__item" data-vista="mixmatch">
+    <span class="nav__icono">✨</span><span>Mix &amp; Match</span>
+  </button>
+  <button class="nav__item" data-vista="favoritos">
+    <span class="nav__icono">♥</span><span>Favoritos</span>
+  </button>
+  <button class="nav__item" data-vista="analisis">
+    <span class="nav__icono">◈</span><span>Análisis</span>
+  </button>
+</nav>
+
+<main class="contenedor">
+
+  <!-- ===================== VISTA: ARMARIO ===================== -->
+  <section class="vista is-activa" id="vista-armario">
+
+    <div class="barra-herramientas">
+      <div class="buscador">
+        <input type="search" id="buscador-input" placeholder="Buscar una prenda…" autocomplete="off">
+      </div>
+      <div class="filtros" id="filtros-categoria">
+        <button class="filtro is-activo" data-categoria="todos">Todos</button>
+        <button class="filtro" data-categoria="pantalones">Pantalones</button>
+        <button class="filtro" data-categoria="tops">Tops</button>
+        <button class="filtro" data-categoria="basicos">Básicos</button>
+        <button class="filtro" data-categoria="americanas">Americanas</button>
+      </div>
+    </div>
+
+    <p class="contador-resultados" id="contador-armario"></p>
+
+    <div class="galeria" id="galeria-armario"></div>
+    <p class="mensaje-vacio" id="galeria-armario-vacio" hidden>No hay prendas que coincidan con tu búsqueda.</p>
+
+  </section>
+
+  <!-- ===================== VISTA: MIX & MATCH ===================== -->
+  <section class="vista" id="vista-mixmatch">
+
+    <div class="pasos-mixmatch">
+
+      <div class="paso" data-paso="pantalon">
+        <div class="paso__cabecera">
+          <span class="paso__numero">1</span>
+          <h2 class="paso__titulo">Elige un pantalón</h2>
+        </div>
+        <div class="paso__galeria" id="mm-pantalones"></div>
+      </div>
+
+      <div class="paso" data-paso="top">
+        <div class="paso__cabecera">
+          <span class="paso__numero">2</span>
+          <h2 class="paso__titulo">Elige una parte de arriba</h2>
+        </div>
+        <p class="paso__ayuda" id="mm-top-ayuda">Selecciona primero un pantalón para ver qué combina.</p>
+        <div class="paso__galeria" id="mm-tops"></div>
+      </div>
+
+      <div class="paso paso--opcional" data-paso="basico">
+        <div class="paso__cabecera">
+          <span class="paso__numero">3</span>
+          <h2 class="paso__titulo">Básico</h2>
+          <span class="paso__etiqueta-opcional">opcional</span>
+        </div>
+        <div class="paso__galeria" id="mm-basicos"></div>
+      </div>
+
+      <div class="paso paso--opcional" data-paso="americana">
+        <div class="paso__cabecera">
+          <span class="paso__numero">4</span>
+          <h2 class="paso__titulo">Americana</h2>
+          <span class="paso__etiqueta-opcional">opcional</span>
+        </div>
+        <div class="paso__galeria" id="mm-americanas"></div>
+      </div>
+
+    </div>
+
+    <div class="resultado-look" id="resultado-look" hidden>
+      <h2 class="resultado-look__titulo">Tu look</h2>
+      <div class="resultado-look__prendas" id="resultado-look-prendas"></div>
+      <div class="resultado-look__veredicto" id="resultado-look-veredicto"></div>
+      <div class="resultado-look__acciones">
+        <button class="boton boton--primario" id="btn-guardar-look">Guardar este look en favoritos</button>
+        <button class="boton boton--fantasma" id="btn-reiniciar-look">Empezar de nuevo</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== VISTA: FAVORITOS ===================== -->
+  <section class="vista" id="vista-favoritos">
+
+    <h2 class="seccion__titulo">Prendas favoritas</h2>
+    <div class="galeria" id="galeria-favoritos-prendas"></div>
+    <p class="mensaje-vacio" id="favoritos-prendas-vacio" hidden>Todavía no has marcado ninguna prenda como favorita. Toca el ♡ de cualquier prenda para guardarla aquí.</p>
+
+    <h2 class="seccion__titulo seccion__titulo--espaciado">Looks guardados</h2>
+    <div class="galeria-looks" id="galeria-favoritos-looks"></div>
+    <p class="mensaje-vacio" id="favoritos-looks-vacio" hidden>Todavía no has guardado ningún look. Crea uno en Mix &amp; Match y pulsa «Guardar este look».</p>
+
+  </section>
+
+  <!-- ===================== VISTA: ANÁLISIS ===================== -->
+  <section class="vista" id="vista-analisis">
+
+    <div class="analisis-resumen" id="analisis-resumen"></div>
+
+    <h2 class="seccion__titulo seccion__titulo--espaciado">Prendas más versátiles</h2>
+    <p class="seccion__descripcion">Ordenadas por número de combinaciones registradas.</p>
+    <div class="lista-ranking" id="analisis-mas-versatiles"></div>
+
+    <h2 class="seccion__titulo seccion__titulo--espaciado">Prendas con menos opciones</h2>
+    <p class="seccion__descripcion">Estas son las prendas con menos combinaciones registradas en tu armario.</p>
+    <div class="lista-ranking" id="analisis-menos-versatiles"></div>
+
+    <h2 class="seccion__titulo seccion__titulo--espaciado">Pantalones con menos opciones</h2>
+    <p class="seccion__descripcion">Número de tops y americanas que tienen registrado ese pantalón como compatible.</p>
+    <div class="lista-ranking" id="analisis-pantalones-huecos"></div>
+
+    <div class="bloque-sugerencia" id="analisis-sugerencias">
+      <h2 class="seccion__titulo">Sugerencias</h2>
+      <p class="seccion__descripcion">Esto no son datos de tu armario, son ideas a partir de los huecos detectados. No se han añadido a tus reglas.</p>
+      <ul id="analisis-sugerencias-lista"></ul>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="data/wardrobe.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
